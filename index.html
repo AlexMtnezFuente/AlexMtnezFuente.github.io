@@ -90,31 +90,26 @@
             color: var(--brand3)
         }
 
+        /* HERO */
         .hero {
-            display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 28px;
-            align-items: center;
-            padding: 52px 0
+            text-align: center;
+            padding: 60px 0 40px;
         }
 
-        @media (max-width:900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 28px 0
-            }
+        .avatar-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border: 1px solid rgba(255, 255, 255, .14);
-            border-radius: 999px;
-            color: var(--muted);
-            font-size: .92rem;
-            background: rgba(255, 255, 255, .04)
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: none;
+            box-shadow: none;
         }
 
         h1 {
@@ -122,7 +117,7 @@
             font-size: clamp(28px, 4vw, 44px);
             background: linear-gradient(90deg, var(--brand1), var(--brand2), var(--brand3));
             -webkit-background-clip: text;
-            color: transparent
+            color: transparent;
         }
 
         .muted {
@@ -133,6 +128,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            justify-content: center;
         }
 
         .btn {
@@ -216,25 +212,8 @@
             transition: .25s ease
         }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            background: conic-gradient(from 180deg at 50% 50%, rgba(79, 140, 255, .14), rgba(139, 92, 246, .14), rgba(34, 211, 238, .12), rgba(79, 140, 255, .14));
-            filter: blur(18px);
-            opacity: .35;
-            z-index: 0;
-            pointer-events: none;
-            mask: linear-gradient(#000 40%, transparent 70%)
-        }
-
         .card.pad {
             padding: 22px
-        }
-
-        .card>* {
-            position: relative;
-            z-index: 1
         }
 
         .card:hover {
@@ -245,7 +224,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 12px
+            margin-top: 12px;
+            justify-content: center;
         }
 
         .chip {
@@ -257,33 +237,7 @@
             color: #d6dbff
         }
 
-        .chip.ok {
-            border-color: var(--ok);
-            color: #b9f6ca
-        }
-
-        .chip.warn {
-            border-color: var(--warn);
-            color: #ffe58a
-        }
-
-        ul.clean {
-            margin: 0;
-            padding-left: 18px
-        }
-
-        li {
-            margin: 6px 0
-        }
-
-        footer {
-            margin: 40px 0 22px;
-            color: #b1b9e6;
-            font-size: .95rem;
-            text-align: center
-        }
-
-        /* --- Desplegables de experiencia --- */
+        /* EXPERIENCIA desplegable */
         details.exp {
             border: 1px solid rgba(255, 255, 255, .08);
             border-radius: var(--radius);
@@ -340,8 +294,11 @@
             border-top: 1px solid rgba(255, 255, 255, .08);
         }
 
-        .exp-content ul.clean {
-            padding-left: 18px;
+        footer {
+            margin: 40px 0 22px;
+            color: #b1b9e6;
+            font-size: .95rem;
+            text-align: center
         }
     </style>
 </head>
@@ -357,7 +314,6 @@
                 <a href="#certs">Certificaciones</a>
                 <a href="#formacion">Formación</a>
                 <a href="#idiomas">Idiomas</a>
-                <a href="#contacto">Contacto</a>
             </nav>
         </div>
     </header>
@@ -365,34 +321,26 @@
     <div class="container">
         <!-- HERO -->
         <section class="hero">
-            <div>
-                <h1>Desarrollador Full Stack</h1>
-                <p class="muted">
-                    Desarrollador Full Stack con 6 años de experiencia, habituado a la coordinación de equipos,
-                    organización de tareas,
-                    tutorización y resolución de incidencias en producción. Experto en stack moderno, buenas prácticas y
-                    metodologías ágiles.
-                    Capaz de trabajar en equipo o en solitario. Abierto a evolucionar hacia liderazgo técnico y gestión.
-                </p>
-                <div class="cta">
-                    <a class="btn primary" href="#proyectos">Ver proyectos</a>
-                    <a class="btn" href="#contacto">Contactar</a>
-                </div>
+            <div class="avatar-container">
+                <img class="avatar" src="assets/foto_cv.jpg" alt="Foto de Alejandro Martínez de la Fuente"
+                    loading="lazy" />
             </div>
-            <div class="card pad">
-                <h3 style="margin:0 0 10px">Stack principal</h3>
-                <div class="chips">
-                    <span class="chip">Java</span><span class="chip">Quarkus</span><span class="chip">Spring Boot</span>
-                    <span class="chip">Angular</span><span class="chip">TypeScript</span><span
-                        class="chip">PostgreSQL</span>
-                    <span class="chip">Jenkins</span><span class="chip">SonarQube</span><span
-                        class="chip">Maven</span><span class="chip">Docker</span>
-                    <span class="chip">Git-Flow</span><span class="chip">RabbitMQ</span>
-                </div>
+            <h1>Desarrollador Full Stack</h1>
+            <p class="muted" style="max-width:700px; margin:0 auto 20px;">
+                Desarrollador Full Stack con 6 años de experiencia, habituado a la coordinación de equipos,
+                organización de tareas, tutorización y resolución de incidencias en producción. Experto en stack
+                moderno, buenas prácticas y metodologías ágiles. Capaz de trabajar en equipo o en solitario.
+                Abierto a evolucionar hacia liderazgo técnico y gestión.
+            </p>
+            <div class="cta">
+                <a class="btn primary" href="mailto:alejandromtnezdlfuente@gmail.com">Email</a>
+                <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank">GitHub</a>
+                <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/"
+                    target="_blank">LinkedIn</a>
             </div>
         </section>
 
-        <!-- PROYECTOS (GitHub) -->
+        <!-- PROYECTOS -->
         <section id="proyectos">
             <div class="section-title"><b>PROYECTOS EN GITHUB</b></div>
             <div class="grid">
@@ -400,8 +348,8 @@
                     <h3>TMDB App API — Backend (.NET)</h3>
                     <p class="muted">API en <b>.NET</b>/<b>C#</b> que consume de la API de TMDB.</p>
                     <div class="chips">
-                        <span class="chip">C#</span><span class="chip">.NET 8</span>
-                        <span class="chip ok">✅ Terminada</span>
+                        <span class="chip">C#</span><span class="chip">.NET 8</span><span class="chip ok">✅
+                            Terminada</span>
                     </div>
                     <div class="cta" style="margin-top:16px">
                         <a class="btn primary" href="https://github.com/AlexMtnezFuente/tmdb-app-api"
@@ -413,8 +361,8 @@
                     <h3>TMDB App Web — Frontend (ASP.NET)</h3>
                     <p class="muted">Cliente para explorar películas consumiendo la API.</p>
                     <div class="chips">
-                        <span class="chip">C#</span><span class="chip">ASP.NET</span>
-                        <span class="chip warn">🚧 En construcción</span>
+                        <span class="chip">C#</span><span class="chip">ASP.NET</span><span class="chip warn">🚧 En
+                            construcción</span>
                     </div>
                     <div class="cta" style="margin-top:16px">
                         <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-web" target="_blank">Ver
@@ -424,12 +372,12 @@
             </div>
         </section>
 
-        <!-- HABILIDADES TÉCNICAS -->
+        <!-- HABILIDADES -->
         <section id="habilidades">
             <div class="section-title"><b>HABILIDADES TÉCNICAS</b></div>
             <div class="grid">
                 <div class="card pad col-6">
-                    <h4 style="margin:0 0 8px">Backend</h4>
+                    <h4>Backend</h4>
                     <div class="chips">
                         <span class="chip">Java</span><span class="chip">Quarkus</span><span class="chip">Spring
                             Framework</span>
@@ -437,14 +385,14 @@
                     </div>
                 </div>
                 <div class="card pad col-6">
-                    <h4 style="margin:0 0 8px">Frontend</h4>
+                    <h4>Frontend</h4>
                     <div class="chips">
                         <span class="chip">Angular</span><span class="chip">Leaflet</span><span
                             class="chip">Highcharts</span><span class="chip">Tailwind CSS</span>
                     </div>
                 </div>
                 <div class="card pad col-6">
-                    <h4 style="margin:0 0 8px">DevOps & herramientas</h4>
+                    <h4>DevOps & herramientas</h4>
                     <div class="chips">
                         <span class="chip">Jenkins</span><span class="chip">SonarQube</span><span
                             class="chip">Maven</span>
@@ -453,13 +401,13 @@
                     </div>
                 </div>
                 <div class="card pad col-6">
-                    <h4 style="margin:0 0 8px">Bases de datos</h4>
+                    <h4>Bases de datos</h4>
                     <div class="chips"><span class="chip">PostgreSQL</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCIA LABORAL (DESPLEGABLES) -->
+        <!-- EXPERIENCIA -->
         <section id="experiencia">
             <div class="section-title"><b>EXPERIENCIA LABORAL</b></div>
 
@@ -474,21 +422,28 @@
                 <div class="exp-content">
                     <ul class="clean">
                         <li><b>DIC 2021 – Actualidad · Plataforma de gestión del ciclo del agua</b> — Responsable de
-                            desarrollo de plataforma modular (arquitectura adaptable, CI/CD, soporte, tutorización,
-                            optimización).</li>
+                            desarrollo de
+                            plataforma modular (arquitectura adaptable, CI/CD, soporte, tutorización, optimización).
+                        </li>
                         <li><b>FEB 2025 – AGO 2025 · Visor DANA</b> — Liderazgo técnico y desarrollo integral del visor
-                            web geoespacial para obras de emergencia (planificación, calidad, CI/CD, tutorización).</li>
+                            web
+                            geoespacial para obras de emergencia (planificación, calidad, CI/CD, tutorización).</li>
                         <li><b>DIC 2024 – FEB 2025 · SYMSITES</b> — Reglas de negocio y lógica avanzada para simbiosis
                             urbano-industrial (normativa europea, economía circular).</li>
                         <li><b>FEB 2024 – DIC 2024 · LUCUS</b> — Ecosistema U-Space para gestión del espacio aéreo de
-                            drones con Airbus (comunicación de microservicios, RabbitMQ, normativa europea).</li>
+                            drones con
+                            Airbus (comunicación de microservicios, RabbitMQ, normativa europea).</li>
                         <li><b>MAY 2022 – NOV 2024 · Innovaugas — RETO 1</b> — Responsable de desarrollo/mantenimiento
-                            de plataforma de análisis de muestras de agua (optimización de rendimiento, arquitectura,
-                            CI/CD, atención a cliente).</li>
+                            de
+                            plataforma de análisis de muestras de agua (optimización de rendimiento, arquitectura,
+                            CI/CD, atención a
+                            cliente).</li>
                         <li><b>DIC 2021 – MAY 2022 · DroneSuite</b> — Plataforma de gestión operativa de operadores de
-                            drones (integración de herramientas, modelado 2D/3D, WebODM, Potree).</li>
+                            drones
+                            (integración de herramientas, modelado 2D/3D, WebODM, Potree).</li>
                         <li><b>SEP 2021 – DIC 2021 · FlyThings (en ITG)</b> — Evolutivo/correctivo en plataforma IoT
-                            (usabilidad, fiabilidad, mejora continua).</li>
+                            (usabilidad,
+                            fiabilidad, mejora continua).</li>
                     </ul>
                 </div>
             </details>
@@ -516,7 +471,8 @@
                 </summary>
                 <div class="exp-content">
                     <p>Apps de monitorización de recursos y envío de datos a servidor; análisis comparativo de apps con
-                        fines de auditoría técnica.</p>
+                        fines de
+                        auditoría técnica.</p>
                 </div>
             </details>
         </section>
@@ -528,32 +484,29 @@
                 <ul class="clean">
                     <li>Professional Scrum Master <b>(PSM II)</b> — 2025
                         <a href="https://drive.google.com/file/d/1qW82vQ5vf13ShMPFvF-3773itT140sr5/view?usp=sharing"
-                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">
-                            Ver certificación
-                        </a>
+                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">Ver
+                            certificación</a>
                     </li>
                     <li>Professional Scrum Master <b>(PSM I)</b> — 2025
                         <a href="https://drive.google.com/file/d/1NmONo3mRhpRcTU1g4Buj0hZMTgT9Ai0X/view?usp=sharing"
-                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">
-                            Ver certificación
-                        </a>
+                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">Ver
+                            certificación</a>
                     </li>
                     <li>Professional Scrum Developer <b>(PSD I)</b> — 2025
                         <a href="https://drive.google.com/file/d/1FvbAo8sVNBsXRVfLgKl_K--dhkQ-Hene/view?usp=sharing"
-                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">
-                            Ver certificación
-                        </a>
+                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">Ver
+                            certificación</a>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <!-- FORMACIÓN ACADÉMICA -->
+        <!-- FORMACIÓN -->
         <section id="formacion">
             <div class="section-title"><b>FORMACIÓN ACADÉMICA</b></div>
             <div class="grid">
                 <div class="card pad col-6">
-                    <h4 style="margin:0 0 8px">Grado en Ingeniería Informática (2016–2021) — UDC</h4>
+                    <h4>Grado en Ingeniería Informática (2016–2021) — UDC</h4>
                     <ul class="clean">
                         <li>Mención en Ingeniería del Software</li>
                         <li>TFG: Optimización en la ejecución del procesamiento de datos en plataforma IoT</li>
@@ -561,7 +514,7 @@
                     </ul>
                 </div>
                 <div class="card pad col-6">
-                    <h4 style="margin:0 0 8px">Formación profesional</h4>
+                    <h4>Formación profesional</h4>
                     <ul class="clean">
                         <li>FP Sup. Desarrollo de Aplicaciones Multiplataforma (DAM) — 2014–2016</li>
                         <li>FP Medio Sistemas Microinformáticos y Redes (SMR) — 2012–2014</li>
@@ -577,19 +530,6 @@
                 <div class="card pad col-4"><b>Castellano</b><br /><span class="muted">Nativo</span></div>
                 <div class="card pad col-4"><b>Gallego</b><br /><span class="muted">Nativo</span></div>
                 <div class="card pad col-4"><b>Inglés</b><br /><span class="muted">B2 (EF SET)</span></div>
-            </div>
-        </section>
-
-        <!-- CONTACTO -->
-        <section id="contacto">
-            <div class="section-title"><b>CONTACTO</b></div>
-            <div class="card pad">
-                <div class="cta">
-                    <a class="btn primary" href="mailto:alejandromtnezdlfuente@gmail.com">Email</a>
-                    <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank">GitHub</a>
-                    <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/"
-                        target="_blank">LinkedIn</a>
-                </div>
             </div>
         </section>
 

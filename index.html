@@ -2,13 +2,318 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Alejandro Martínez de la Fuente — Portafolio</title>
+    <meta name="description"
+        content="Portafolio de Alejandro Martínez de la Fuente, Desarrollador Full Stack (.NET y Angular). Proyectos, experiencia y contacto." />
+    <style>
+        :root {
+            --bg: #0f1115;
+            --card: #161a22;
+            --muted: #9aa4b2;
+            --text: #e8edf2;
+            --brand: #4f8cff;
+            --brand2: #7c3aed;
+            --ok: #22c55e;
+            --radius: 14px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(15, 17, 21, .7);
+            border-bottom: 1px solid #222736;
+            backdrop-filter: saturate(180%) blur(10px)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--brand), var(--brand2))
+        }
+
+        .links a {
+            opacity: .85;
+            margin-left: 18px
+        }
+
+        .links a:hover {
+            opacity: 1
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 28px;
+            align-items: center;
+            padding: 48px 0
+        }
+
+        @media (max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 28px 0
+            }
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border: 1px solid #2a3041;
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin: 10px 0 12px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #2a3041;
+            background: #1a1f2b;
+            transition: .2s
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .25)
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            border: none
+        }
+
+        section {
+            margin: 36px 0
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px
+        }
+
+        .col-6 {
+            grid-column: span 6
+        }
+
+        .col-12 {
+            grid-column: span 12
+        }
+
+        @media (max-width:900px) {
+            .col-6 {
+                grid-column: span 12
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #23283a;
+            border-radius: var(--radius)
+        }
+
+        .card.pad {
+            padding: 18px
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        .chip {
+            padding: 6px 10px;
+            border: 1px solid #2a3041;
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: .85rem
+        }
+
+        footer {
+            margin: 36px 0 18px;
+            color: #7f8aa3;
+            font-size: .95rem;
+            text-align: center
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Hola, soy Álex</h1>
-    <p>Desarrollador Full Stack. Mira mis proyectos en GitHub.</p>
+    <header>
+        <div class="container nav">
+            <div class="brand"><span class="dot"></span> Alejandro Martínez de la Fuente</div>
+            <nav class="links">
+                <a href="#proyectos">Proyectos</a>
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#contacto">Contacto</a>
+                <a href="https://github.com/AlexMtnezFuente" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="https://www.linkedin.com/in/alejandromartinezdelafuente/" target="_blank"
+                    rel="noopener">LinkedIn ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- HERO -->
+        <section class="hero">
+            <div>
+                <span class="tag">Disponible <span style="color:var(--ok)">●</span></span>
+                <h1>Desarrollador Full Stack (.NET & Angular)</h1>
+                <p class="muted">Creo aplicaciones modernas y eficientes con .NET, C#, Angular y TypeScript. Me gusta el
+                    código limpio y la funcionalidad clara.</p>
+                <div class="cta">
+                    <a class="btn primary" href="#proyectos">Ver proyectos</a>
+                    <a class="btn" href="#contacto">Contactar</a>
+                </div>
+            </div>
+            <div class="card pad">
+                <h3 style="margin:0 0 8px">Resumen</h3>
+                <p class="muted" style="margin:0">Experiencia con <b>.NET 8/9</b>, <b>ASP.NET Core</b>, <b>Entity
+                        Framework</b> y <b>Angular</b>. Apasionado por el rendimiento, la optimización y la
+                    automatización.</p>
+                <div class="chips">
+                    <span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span>
+                    <span class="chip">REST APIs</span><span class="chip">Angular</span><span
+                        class="chip">TypeScript</span>
+                    <span class="chip">SQL</span><span class="chip">Git</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTOS -->
+        <section id="proyectos">
+            <div class="section-title"><span class="tag">Proyectos destacados</span></div>
+            <div class="grid">
+                <article class="card pad col-6">
+                    <h3 style="margin:6px 0">TMDB App API — Backend</h3>
+                    <p class="muted">API en <b>.NET</b> que consume TMDB y expone endpoints limpios para el frontend.
+                        Enfoque en arquitectura simple, escalable y testable.</p>
+                    <div class="chips">
+                        <span class="chip">C#</span><span class="chip">.NET 8</span><span class="chip">ASP.NET
+                            Core</span>
+                    </div>
+                    <div class="cta" style="margin-top:12px">
+                        <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-api" target="_blank"
+                            rel="noopener">Ver código</a>
+                    </div>
+                </article>
+
+                <article class="card pad col-6">
+                    <h3 style="margin:6px 0">TMDB App Web — Frontend</h3>
+                    <p class="muted">Cliente <b>Angular</b> que consume la API, con interfaz moderna, responsive y
+                        limpia para explorar películas.</p>
+                    <div class="chips">
+                        <span class="chip">Angular</span><span class="chip">TypeScript</span><span
+                            class="chip">SPA</span>
+                    </div>
+                    <div class="cta" style="margin-top:12px">
+                        <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-web" target="_blank"
+                            rel="noopener">Ver código</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi">
+            <div class="section-title"><span class="tag">Sobre mí</span></div>
+            <div class="card pad">
+                <p class="muted" style="margin:0">
+                    Soy Alejandro Martínez de la Fuente, Desarrollador Full Stack con experiencia en backend y frontend.
+                    Me motiva crear software útil, bien estructurado y mantenible.
+                    Busco equipos que valoren la comunicación directa y la calidad del código.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto">
+            <div class="section-title"><span class="tag">Contacto</span></div>
+            <div class="card pad">
+                <p class="muted" style="margin:0 0 12px">¿Quieres contactar conmigo o colaborar en un proyecto?</p>
+                <div class="cta">
+                    <a class="btn" href="mailto:alejandromtnezdlfuente@gmail.com">📧 Email</a>
+                    <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank" rel="noopener">🐙
+                        GitHub</a>
+                    <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/" target="_blank"
+                        rel="noopener">💼 LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>© 2025 Alejandro Martínez de la Fuente — Hecho con ❤️ y GitHub Pages</footer>
+    </div>
 </body>
 
 </html>

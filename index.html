@@ -133,7 +133,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 18px
         }
 
         .btn {
@@ -283,6 +282,67 @@
             font-size: .95rem;
             text-align: center
         }
+
+        /* --- Desplegables de experiencia --- */
+        details.exp {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, var(--card), var(--card2));
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        details.exp+details.exp {
+            margin-top: 12px;
+        }
+
+        summary.exp-summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        summary.exp-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .exp-summary .left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .exp-title {
+            font-weight: 700;
+        }
+
+        .exp-meta {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        .exp-chevron {
+            transition: transform .2s ease;
+            font-size: 1.1rem;
+            opacity: .85;
+        }
+
+        details.exp[open] .exp-chevron {
+            transform: rotate(90deg);
+        }
+
+        .exp-content {
+            padding: 0 22px 18px 22px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .exp-content ul.clean {
+            padding-left: 18px;
+        }
     </style>
 </head>
 
@@ -292,7 +352,6 @@
             <div class="brand">Alejandro Martínez de la Fuente</div>
             <nav class="links">
                 <a href="#proyectos">Proyectos</a>
-                <a href="#perfil">Perfil</a>
                 <a href="#habilidades">Habilidades</a>
                 <a href="#experiencia">Experiencia</a>
                 <a href="#certs">Certificaciones</a>
@@ -307,7 +366,6 @@
         <!-- HERO -->
         <section class="hero">
             <div>
-                <span class="tag">Disponible <span style="color:var(--ok)">●</span></span>
                 <h1>Desarrollador Full Stack</h1>
                 <p class="muted">
                     Desarrollador Full Stack con 6 años de experiencia, habituado a la coordinación de equipos,
@@ -329,40 +387,36 @@
                         class="chip">PostgreSQL</span>
                     <span class="chip">Jenkins</span><span class="chip">SonarQube</span><span
                         class="chip">Maven</span><span class="chip">Docker</span>
-                    <span class="chip">Git-Flow</span><span class="chip">RabbitMQ</span><span class="chip">.NET (API
-                        lista)</span>
+                    <span class="chip">Git-Flow</span><span class="chip">RabbitMQ</span>
                 </div>
             </div>
         </section>
 
         <!-- PROYECTOS (GitHub) -->
         <section id="proyectos">
-            <div class="section-title">🚀 Proyectos en GitHub</div>
+            <div class="section-title"><b>PROYECTOS EN GITHUB</b></div>
             <div class="grid">
                 <article class="card pad col-6">
                     <h3>TMDB App API — Backend (.NET)</h3>
-                    <p class="muted">API en <b>.NET</b>/<b>C#</b> que consume TMDB y expone endpoints limpios. Diseño
-                        simple y mantenible. Lista para consumo.</p>
+                    <p class="muted">API en <b>.NET</b>/<b>C#</b> que consume de la API de TMDB.</p>
                     <div class="chips">
-                        <span class="chip">C#</span><span class="chip">.NET 8</span><span class="chip">ASP.NET
-                            Core</span>
+                        <span class="chip">C#</span><span class="chip">.NET 8</span>
                         <span class="chip ok">✅ Terminada</span>
                     </div>
-                    <div class="cta" style="margin-top:12px">
+                    <div class="cta" style="margin-top:16px">
                         <a class="btn primary" href="https://github.com/AlexMtnezFuente/tmdb-app-api"
                             target="_blank">Ver código</a>
                     </div>
                 </article>
 
                 <article class="card pad col-6">
-                    <h3>TMDB App Web — Frontend (Angular)</h3>
-                    <p class="muted">Cliente para explorar películas consumiendo la API. Interfaz moderna y responsive.
-                    </p>
+                    <h3>TMDB App Web — Frontend (ASP.NET)</h3>
+                    <p class="muted">Cliente para explorar películas consumiendo la API.</p>
                     <div class="chips">
-                        <span class="chip">Angular</span><span class="chip">TypeScript</span>
+                        <span class="chip">C#</span><span class="chip">ASP.NET</span>
                         <span class="chip warn">🚧 En construcción</span>
                     </div>
-                    <div class="cta" style="margin-top:12px">
+                    <div class="cta" style="margin-top:16px">
                         <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-web" target="_blank">Ver
                             código</a>
                     </div>
@@ -372,7 +426,7 @@
 
         <!-- HABILIDADES TÉCNICAS -->
         <section id="habilidades">
-            <div class="section-title">🧰 Habilidades técnicas</div>
+            <div class="section-title"><b>HABILIDADES TÉCNICAS</b></div>
             <div class="grid">
                 <div class="card pad col-6">
                     <h4 style="margin:0 0 8px">Backend</h4>
@@ -405,60 +459,98 @@
             </div>
         </section>
 
-        <!-- EXPERIENCIA -->
+        <!-- EXPERIENCIA LABORAL (DESPLEGABLES) -->
         <section id="experiencia">
-            <div class="section-title">👔 Experiencia</div>
-            <div class="card pad">
-                <ul class="clean">
-                    <li><b>ITG Technology Center — Desarrollador Full Stack</b> · A Coruña · <i>sep 2021 –
-                            Actualidad</i><br />
-                        Desarrollo full stack, coordinación y CI/CD en proyectos europeos y administración pública:
-                        <ul class="clean">
-                            <li><b>DIC 2021 – Actualidad · Plataforma de gestión del ciclo del agua</b> — Responsable de
-                                desarrollo de plataforma modular (arquitectura adaptable, CI/CD, soporte, tutorización,
-                                optimización).</li>
-                            <li><b>FEB 2025 – AGO 2025 · Visor DANA</b> — Liderazgo técnico y desarrollo integral del
-                                visor web geoespacial para obras de emergencia (planificación, calidad, CI/CD,
-                                tutorización).</li>
-                            <li><b>DIC 2024 – FEB 2025 · SYMSITES</b> — Reglas de negocio y lógica avanzada para
-                                simbiosis urbano-industrial (normativa europea, economía circular).</li>
-                            <li><b>FEB 2024 – DIC 2024 · LUCUS</b> — Ecosistema U-Space para gestión del espacio aéreo
-                                de drones con Airbus (comunicación de microservicios, RabbitMQ, normativa europea).</li>
-                            <li><b>MAY 2022 – NOV 2024 · Innovaugas — RETO 1</b> — Responsable de
-                                desarrollo/mantenimiento de plataforma de análisis de muestras de agua (optimización de
-                                rendimiento, arquitectura, CI/CD, atención a cliente).</li>
-                            <li><b>DIC 2021 – MAY 2022 · DroneSuite</b> — Plataforma de gestión operativa de operadores
-                                de drones (integración de herramientas, modelado 2D/3D, WebODM, Potree).</li>
-                            <li><b>SEP 2021 – DIC 2021 · FlyThings (en ITG)</b> — Evolutivo/correctivo en plataforma IoT
-                                (usabilidad, fiabilidad, mejora continua).</li>
-                        </ul>
-                    </li>
-                    <li><b>FlyThings — Desarrollador Full Stack</b> · A Coruña · <i>feb 2020 – sep 2021</i><br />
-                        Incidencias y nuevas funcionalidades en plataforma IoT con foco en UX y mejora continua.
-                    </li>
-                    <li><b>Forensic & Security — Desarrollador Android</b> · A Coruña · <i>abr 2016 – jun 2016</i><br />
-                        Apps de monitorización de recursos y envío de datos a servidor; análisis comparativo de apps con
-                        fines de auditoría técnica.
-                    </li>
-                </ul>
-            </div>
+            <div class="section-title"><b>EXPERIENCIA LABORAL</b></div>
+
+            <details class="exp" open>
+                <summary class="exp-summary">
+                    <div class="left">
+                        <span class="exp-title"><b>ITG Technology Center — Desarrollador Full Stack</b></span>
+                        <span class="exp-meta">A Coruña · <i>sep 2021 – Actualidad</i></span>
+                    </div>
+                    <span class="exp-chevron">➤</span>
+                </summary>
+                <div class="exp-content">
+                    <ul class="clean">
+                        <li><b>DIC 2021 – Actualidad · Plataforma de gestión del ciclo del agua</b> — Responsable de
+                            desarrollo de plataforma modular (arquitectura adaptable, CI/CD, soporte, tutorización,
+                            optimización).</li>
+                        <li><b>FEB 2025 – AGO 2025 · Visor DANA</b> — Liderazgo técnico y desarrollo integral del visor
+                            web geoespacial para obras de emergencia (planificación, calidad, CI/CD, tutorización).</li>
+                        <li><b>DIC 2024 – FEB 2025 · SYMSITES</b> — Reglas de negocio y lógica avanzada para simbiosis
+                            urbano-industrial (normativa europea, economía circular).</li>
+                        <li><b>FEB 2024 – DIC 2024 · LUCUS</b> — Ecosistema U-Space para gestión del espacio aéreo de
+                            drones con Airbus (comunicación de microservicios, RabbitMQ, normativa europea).</li>
+                        <li><b>MAY 2022 – NOV 2024 · Innovaugas — RETO 1</b> — Responsable de desarrollo/mantenimiento
+                            de plataforma de análisis de muestras de agua (optimización de rendimiento, arquitectura,
+                            CI/CD, atención a cliente).</li>
+                        <li><b>DIC 2021 – MAY 2022 · DroneSuite</b> — Plataforma de gestión operativa de operadores de
+                            drones (integración de herramientas, modelado 2D/3D, WebODM, Potree).</li>
+                        <li><b>SEP 2021 – DIC 2021 · FlyThings (en ITG)</b> — Evolutivo/correctivo en plataforma IoT
+                            (usabilidad, fiabilidad, mejora continua).</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="exp">
+                <summary class="exp-summary">
+                    <div class="left">
+                        <span class="exp-title"><b>FlyThings — Desarrollador Full Stack</b></span>
+                        <span class="exp-meta">A Coruña · <i>feb 2020 – sep 2021</i></span>
+                    </div>
+                    <span class="exp-chevron">➤</span>
+                </summary>
+                <div class="exp-content">
+                    <p>Incidencias y nuevas funcionalidades en plataforma IoT con foco en UX y mejora continua.</p>
+                </div>
+            </details>
+
+            <details class="exp">
+                <summary class="exp-summary">
+                    <div class="left">
+                        <span class="exp-title"><b>Forensic & Security — Desarrollador Android</b></span>
+                        <span class="exp-meta">A Coruña · <i>abr 2016 – jun 2016</i></span>
+                    </div>
+                    <span class="exp-chevron">➤</span>
+                </summary>
+                <div class="exp-content">
+                    <p>Apps de monitorización de recursos y envío de datos a servidor; análisis comparativo de apps con
+                        fines de auditoría técnica.</p>
+                </div>
+            </details>
         </section>
 
         <!-- CERTIFICACIONES -->
         <section id="certs">
-            <div class="section-title">🎓 Certificaciones</div>
+            <div class="section-title"><b>CERTIFICACIONES</b></div>
             <div class="card pad">
                 <ul class="clean">
-                    <li>Professional Scrum Master <b>(PSM II)</b> — 2025</li>
-                    <li>Professional Scrum Master <b>(PSM I)</b> — 2025</li>
-                    <li>Professional Scrum Developer <b>(PSD I)</b> — 2025</li>
+                    <li>Professional Scrum Master <b>(PSM II)</b> — 2025
+                        <a href="https://drive.google.com/file/d/1qW82vQ5vf13ShMPFvF-3773itT140sr5/view?usp=sharing"
+                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">
+                            Ver certificación
+                        </a>
+                    </li>
+                    <li>Professional Scrum Master <b>(PSM I)</b> — 2025
+                        <a href="https://drive.google.com/file/d/1NmONo3mRhpRcTU1g4Buj0hZMTgT9Ai0X/view?usp=sharing"
+                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">
+                            Ver certificación
+                        </a>
+                    </li>
+                    <li>Professional Scrum Developer <b>(PSD I)</b> — 2025
+                        <a href="https://drive.google.com/file/d/1FvbAo8sVNBsXRVfLgKl_K--dhkQ-Hene/view?usp=sharing"
+                            target="_blank" style="color:var(--brand1); text-decoration:underline; margin-left:6px;">
+                            Ver certificación
+                        </a>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <!-- FORMACIÓN -->
+        <!-- FORMACIÓN ACADÉMICA -->
         <section id="formacion">
-            <div class="section-title">🏛️ Formación académica</div>
+            <div class="section-title"><b>FORMACIÓN ACADÉMICA</b></div>
             <div class="grid">
                 <div class="card pad col-6">
                     <h4 style="margin:0 0 8px">Grado en Ingeniería Informática (2016–2021) — UDC</h4>
@@ -480,7 +572,7 @@
 
         <!-- IDIOMAS -->
         <section id="idiomas">
-            <div class="section-title">🌐 Idiomas</div>
+            <div class="section-title"><b>IDIOMAS</b></div>
             <div class="grid">
                 <div class="card pad col-4"><b>Castellano</b><br /><span class="muted">Nativo</span></div>
                 <div class="card pad col-4"><b>Gallego</b><br /><span class="muted">Nativo</span></div>
@@ -490,19 +582,18 @@
 
         <!-- CONTACTO -->
         <section id="contacto">
-            <div class="section-title">📬 Contacto</div>
+            <div class="section-title"><b>CONTACTO</b></div>
             <div class="card pad">
-                <p class="muted">A Coruña, España</p>
                 <div class="cta">
-                    <a class="btn primary" href="mailto:alejandromtnezdlfuente@gmail.com">📧 Email</a>
-                    <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank">🐙 GitHub</a>
-                    <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/" target="_blank">💼
-                        LinkedIn</a>
+                    <a class="btn primary" href="mailto:alejandromtnezdlfuente@gmail.com">Email</a>
+                    <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank">GitHub</a>
+                    <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/"
+                        target="_blank">LinkedIn</a>
                 </div>
             </div>
         </section>
 
-        <footer>© 2025 Alejandro Martínez de la Fuente — Hecho con ❤️ y GitHub Pages</footer>
+        <footer>© 2025 Alejandro Martínez de la Fuente — Hecho con GitHub Pages</footer>
     </div>
 </body>
 

@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Alejandro Martínez de la Fuente — Portafolio</title>
     <meta name="description"
-        content="Portafolio de Alejandro Martínez de la Fuente, Desarrollador Full Stack (.NET y Angular). Proyectos, experiencia y contacto." />
+        content="Portafolio de Alejandro Martínez de la Fuente. Desarrollador Java & Angular, CI/CD, y .NET (API TMDB finalizada). Proyectos, experiencia y contacto." />
     <style>
         :root {
-            --bg: #0f1115;
-            --card: #161a22;
-            --muted: #9aa4b2;
-            --text: #e8edf2;
-            --brand: #4f8cff;
-            --brand2: #7c3aed;
+            --bg1: #0b1022;
+            --bg2: #141a3a;
+            --card: #161b3d;
+            --card2: #1a2047;
+            --text: #eef2ff;
+            --muted: #a9b2d9;
+            --brand1: #4f8cff;
+            --brand2: #8b5cf6;
+            --brand3: #22d3ee;
             --ok: #22c55e;
-            --radius: 14px
+            --warn: #facc15;
+            --radius: 16px;
+            --shadow: 0 12px 40px rgba(0, 0, 0, .35);
         }
 
         * {
@@ -26,9 +31,13 @@
         html,
         body {
             margin: 0;
-            background: var(--bg);
             color: var(--text);
-            font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial
+            font: 16px/1.7 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+            background:
+                radial-gradient(1100px 700px at 8% 0%, rgba(79, 140, 255, .18), transparent 60%),
+                radial-gradient(1000px 650px at 92% 8%, rgba(139, 92, 246, .18), transparent 60%),
+                linear-gradient(160deg, var(--bg1), var(--bg2));
+            background-attachment: fixed;
         }
 
         a {
@@ -45,10 +54,10 @@
         header {
             position: sticky;
             top: 0;
-            z-index: 10;
-            background: rgba(15, 17, 21, .7);
-            border-bottom: 1px solid #222736;
-            backdrop-filter: saturate(180%) blur(10px)
+            z-index: 20;
+            background: rgba(13, 16, 36, .7);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            backdrop-filter: saturate(180%) blur(10px);
         }
 
         .nav {
@@ -61,24 +70,24 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 700
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--brand), var(--brand2))
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: .2px;
+            background: linear-gradient(90deg, var(--brand1), var(--brand2));
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 1.15rem;
         }
 
         .links a {
-            opacity: .85;
-            margin-left: 18px
+            opacity: .9;
+            margin-left: 18px;
+            transition: .2s
         }
 
         .links a:hover {
-            opacity: 1
+            opacity: 1;
+            color: var(--brand3)
         }
 
         .hero {
@@ -86,7 +95,7 @@
             grid-template-columns: 1.2fr .8fr;
             gap: 28px;
             align-items: center;
-            padding: 48px 0
+            padding: 52px 0
         }
 
         @media (max-width:900px) {
@@ -100,16 +109,20 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 10px;
-            border: 1px solid #2a3041;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, .14);
             border-radius: 999px;
             color: var(--muted);
-            font-size: .9rem
+            font-size: .92rem;
+            background: rgba(255, 255, 255, .04)
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
-            margin: 10px 0 12px
+            margin: 12px 0 12px;
+            font-size: clamp(28px, 4vw, 44px);
+            background: linear-gradient(90deg, var(--brand1), var(--brand2), var(--brand3));
+            -webkit-background-clip: text;
+            color: transparent
         }
 
         .muted {
@@ -127,38 +140,55 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            border: 1px solid #2a3041;
-            background: #1a1f2b;
-            transition: .2s
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: linear-gradient(180deg, #1f2450, #1b2147);
+            transition: .2s ease;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, .25)
         }
 
         .btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .25)
+            box-shadow: 0 0 0 3px rgba(79, 140, 255, .18), var(--shadow)
         }
 
         .btn.primary {
-            background: linear-gradient(135deg, var(--brand), var(--brand2));
-            border: none
+            border: none;
+            background: linear-gradient(135deg, var(--brand1), var(--brand2), var(--brand3));
+            box-shadow: 0 8px 30px rgba(79, 140, 255, .35)
         }
 
         section {
-            margin: 36px 0
+            margin: 56px 0
         }
 
         .section-title {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 14px
+            gap: 12px;
+            margin: 0 0 16px;
+            font-size: 1.2rem;
+            color: #dbe4ff
+        }
+
+        .section-title:after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            margin-left: 10px;
+            background: linear-gradient(90deg, transparent, rgba(79, 140, 255, .5), transparent);
+            filter: drop-shadow(0 0 6px rgba(79, 140, 255, .35));
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 16px
+            gap: 18px
+        }
+
+        .col-4 {
+            grid-column: span 4
         }
 
         .col-6 {
@@ -170,39 +200,86 @@
         }
 
         @media (max-width:900px) {
-            .col-6 {
+
+            .col-6,
+            .col-4 {
                 grid-column: span 12
             }
         }
 
         .card {
-            background: var(--card);
-            border: 1px solid #23283a;
-            border-radius: var(--radius)
+            background: linear-gradient(180deg, var(--card), var(--card2));
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: .25s ease
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: conic-gradient(from 180deg at 50% 50%, rgba(79, 140, 255, .14), rgba(139, 92, 246, .14), rgba(34, 211, 238, .12), rgba(79, 140, 255, .14));
+            filter: blur(18px);
+            opacity: .35;
+            z-index: 0;
+            pointer-events: none;
+            mask: linear-gradient(#000 40%, transparent 70%)
         }
 
         .card.pad {
-            padding: 18px
+            padding: 22px
+        }
+
+        .card>* {
+            position: relative;
+            z-index: 1
+        }
+
+        .card:hover {
+            transform: translateY(-3px)
         }
 
         .chips {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 10px
+            margin-top: 12px
         }
 
         .chip {
             padding: 6px 10px;
-            border: 1px solid #2a3041;
+            font-size: .85rem;
             border-radius: 999px;
-            color: var(--muted);
-            font-size: .85rem
+            background: linear-gradient(135deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .14);
+            color: #d6dbff
+        }
+
+        .chip.ok {
+            border-color: var(--ok);
+            color: #b9f6ca
+        }
+
+        .chip.warn {
+            border-color: var(--warn);
+            color: #ffe58a
+        }
+
+        ul.clean {
+            margin: 0;
+            padding-left: 18px
+        }
+
+        li {
+            margin: 6px 0
         }
 
         footer {
-            margin: 36px 0 18px;
-            color: #7f8aa3;
+            margin: 40px 0 22px;
+            color: #b1b9e6;
             font-size: .95rem;
             text-align: center
         }
@@ -212,14 +289,16 @@
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><span class="dot"></span> Alejandro Martínez de la Fuente</div>
+            <div class="brand">Alejandro Martínez de la Fuente</div>
             <nav class="links">
                 <a href="#proyectos">Proyectos</a>
-                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#perfil">Perfil</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#experiencia">Experiencia</a>
+                <a href="#certs">Certificaciones</a>
+                <a href="#formacion">Formación</a>
+                <a href="#idiomas">Idiomas</a>
                 <a href="#contacto">Contacto</a>
-                <a href="https://github.com/AlexMtnezFuente" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="https://www.linkedin.com/in/alejandromartinezdelafuente/" target="_blank"
-                    rel="noopener">LinkedIn ↗</a>
             </nav>
         </div>
     </header>
@@ -229,85 +308,196 @@
         <section class="hero">
             <div>
                 <span class="tag">Disponible <span style="color:var(--ok)">●</span></span>
-                <h1>Desarrollador Full Stack (.NET & Angular)</h1>
-                <p class="muted">Creo aplicaciones modernas y eficientes con .NET, C#, Angular y TypeScript. Me gusta el
-                    código limpio y la funcionalidad clara.</p>
+                <h1>Desarrollador Full Stack</h1>
+                <p class="muted">
+                    Desarrollador Full Stack con 6 años de experiencia, habituado a la coordinación de equipos,
+                    organización de tareas,
+                    tutorización y resolución de incidencias en producción. Experto en stack moderno, buenas prácticas y
+                    metodologías ágiles.
+                    Capaz de trabajar en equipo o en solitario. Abierto a evolucionar hacia liderazgo técnico y gestión.
+                </p>
                 <div class="cta">
                     <a class="btn primary" href="#proyectos">Ver proyectos</a>
                     <a class="btn" href="#contacto">Contactar</a>
                 </div>
             </div>
             <div class="card pad">
-                <h3 style="margin:0 0 8px">Resumen</h3>
-                <p class="muted" style="margin:0">Experiencia con <b>.NET 8/9</b>, <b>ASP.NET Core</b>, <b>Entity
-                        Framework</b> y <b>Angular</b>. Apasionado por el rendimiento, la optimización y la
-                    automatización.</p>
+                <h3 style="margin:0 0 10px">Stack principal</h3>
                 <div class="chips">
-                    <span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span>
-                    <span class="chip">REST APIs</span><span class="chip">Angular</span><span
-                        class="chip">TypeScript</span>
-                    <span class="chip">SQL</span><span class="chip">Git</span>
+                    <span class="chip">Java</span><span class="chip">Quarkus</span><span class="chip">Spring Boot</span>
+                    <span class="chip">Angular</span><span class="chip">TypeScript</span><span
+                        class="chip">PostgreSQL</span>
+                    <span class="chip">Jenkins</span><span class="chip">SonarQube</span><span
+                        class="chip">Maven</span><span class="chip">Docker</span>
+                    <span class="chip">Git-Flow</span><span class="chip">RabbitMQ</span><span class="chip">.NET (API
+                        lista)</span>
                 </div>
             </div>
         </section>
 
-        <!-- PROYECTOS -->
+        <!-- PROYECTOS (GitHub) -->
         <section id="proyectos">
-            <div class="section-title"><span class="tag">Proyectos destacados</span></div>
+            <div class="section-title">🚀 Proyectos en GitHub</div>
             <div class="grid">
                 <article class="card pad col-6">
-                    <h3 style="margin:6px 0">TMDB App API — Backend</h3>
-                    <p class="muted">API en <b>.NET</b> que consume TMDB y expone endpoints limpios para el frontend.
-                        Enfoque en arquitectura simple, escalable y testable.</p>
+                    <h3>TMDB App API — Backend (.NET)</h3>
+                    <p class="muted">API en <b>.NET</b>/<b>C#</b> que consume TMDB y expone endpoints limpios. Diseño
+                        simple y mantenible. Lista para consumo.</p>
                     <div class="chips">
                         <span class="chip">C#</span><span class="chip">.NET 8</span><span class="chip">ASP.NET
                             Core</span>
+                        <span class="chip ok">✅ Terminada</span>
                     </div>
                     <div class="cta" style="margin-top:12px">
-                        <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-api" target="_blank"
-                            rel="noopener">Ver código</a>
+                        <a class="btn primary" href="https://github.com/AlexMtnezFuente/tmdb-app-api"
+                            target="_blank">Ver código</a>
                     </div>
                 </article>
 
                 <article class="card pad col-6">
-                    <h3 style="margin:6px 0">TMDB App Web — Frontend</h3>
-                    <p class="muted">Cliente <b>Angular</b> que consume la API, con interfaz moderna, responsive y
-                        limpia para explorar películas.</p>
+                    <h3>TMDB App Web — Frontend (Angular)</h3>
+                    <p class="muted">Cliente para explorar películas consumiendo la API. Interfaz moderna y responsive.
+                    </p>
                     <div class="chips">
-                        <span class="chip">Angular</span><span class="chip">TypeScript</span><span
-                            class="chip">SPA</span>
+                        <span class="chip">Angular</span><span class="chip">TypeScript</span>
+                        <span class="chip warn">🚧 En construcción</span>
                     </div>
                     <div class="cta" style="margin-top:12px">
-                        <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-web" target="_blank"
-                            rel="noopener">Ver código</a>
+                        <a class="btn" href="https://github.com/AlexMtnezFuente/tmdb-app-web" target="_blank">Ver
+                            código</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- SOBRE MÍ -->
-        <section id="sobre-mi">
-            <div class="section-title"><span class="tag">Sobre mí</span></div>
+        <!-- HABILIDADES TÉCNICAS -->
+        <section id="habilidades">
+            <div class="section-title">🧰 Habilidades técnicas</div>
+            <div class="grid">
+                <div class="card pad col-6">
+                    <h4 style="margin:0 0 8px">Backend</h4>
+                    <div class="chips">
+                        <span class="chip">Java</span><span class="chip">Quarkus</span><span class="chip">Spring
+                            Framework</span>
+                        <span class="chip">Hibernate</span><span class="chip">REST APIs</span>
+                    </div>
+                </div>
+                <div class="card pad col-6">
+                    <h4 style="margin:0 0 8px">Frontend</h4>
+                    <div class="chips">
+                        <span class="chip">Angular</span><span class="chip">Leaflet</span><span
+                            class="chip">Highcharts</span><span class="chip">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="card pad col-6">
+                    <h4 style="margin:0 0 8px">DevOps & herramientas</h4>
+                    <div class="chips">
+                        <span class="chip">Jenkins</span><span class="chip">SonarQube</span><span
+                            class="chip">Maven</span>
+                        <span class="chip">Docker</span><span class="chip">Git-Flow</span><span
+                            class="chip">RabbitMQ</span>
+                    </div>
+                </div>
+                <div class="card pad col-6">
+                    <h4 style="margin:0 0 8px">Bases de datos</h4>
+                    <div class="chips"><span class="chip">PostgreSQL</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section id="experiencia">
+            <div class="section-title">👔 Experiencia</div>
             <div class="card pad">
-                <p class="muted" style="margin:0">
-                    Soy Alejandro Martínez de la Fuente, Desarrollador Full Stack con experiencia en backend y frontend.
-                    Me motiva crear software útil, bien estructurado y mantenible.
-                    Busco equipos que valoren la comunicación directa y la calidad del código.
-                </p>
+                <ul class="clean">
+                    <li><b>ITG Technology Center — Desarrollador Full Stack</b> · A Coruña · <i>sep 2021 –
+                            Actualidad</i><br />
+                        Desarrollo full stack, coordinación y CI/CD en proyectos europeos y administración pública:
+                        <ul class="clean">
+                            <li><b>DIC 2021 – Actualidad · Plataforma de gestión del ciclo del agua</b> — Responsable de
+                                desarrollo de plataforma modular (arquitectura adaptable, CI/CD, soporte, tutorización,
+                                optimización).</li>
+                            <li><b>FEB 2025 – AGO 2025 · Visor DANA</b> — Liderazgo técnico y desarrollo integral del
+                                visor web geoespacial para obras de emergencia (planificación, calidad, CI/CD,
+                                tutorización).</li>
+                            <li><b>DIC 2024 – FEB 2025 · SYMSITES</b> — Reglas de negocio y lógica avanzada para
+                                simbiosis urbano-industrial (normativa europea, economía circular).</li>
+                            <li><b>FEB 2024 – DIC 2024 · LUCUS</b> — Ecosistema U-Space para gestión del espacio aéreo
+                                de drones con Airbus (comunicación de microservicios, RabbitMQ, normativa europea).</li>
+                            <li><b>MAY 2022 – NOV 2024 · Innovaugas — RETO 1</b> — Responsable de
+                                desarrollo/mantenimiento de plataforma de análisis de muestras de agua (optimización de
+                                rendimiento, arquitectura, CI/CD, atención a cliente).</li>
+                            <li><b>DIC 2021 – MAY 2022 · DroneSuite</b> — Plataforma de gestión operativa de operadores
+                                de drones (integración de herramientas, modelado 2D/3D, WebODM, Potree).</li>
+                            <li><b>SEP 2021 – DIC 2021 · FlyThings (en ITG)</b> — Evolutivo/correctivo en plataforma IoT
+                                (usabilidad, fiabilidad, mejora continua).</li>
+                        </ul>
+                    </li>
+                    <li><b>FlyThings — Desarrollador Full Stack</b> · A Coruña · <i>feb 2020 – sep 2021</i><br />
+                        Incidencias y nuevas funcionalidades en plataforma IoT con foco en UX y mejora continua.
+                    </li>
+                    <li><b>Forensic & Security — Desarrollador Android</b> · A Coruña · <i>abr 2016 – jun 2016</i><br />
+                        Apps de monitorización de recursos y envío de datos a servidor; análisis comparativo de apps con
+                        fines de auditoría técnica.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CERTIFICACIONES -->
+        <section id="certs">
+            <div class="section-title">🎓 Certificaciones</div>
+            <div class="card pad">
+                <ul class="clean">
+                    <li>Professional Scrum Master <b>(PSM II)</b> — 2025</li>
+                    <li>Professional Scrum Master <b>(PSM I)</b> — 2025</li>
+                    <li>Professional Scrum Developer <b>(PSD I)</b> — 2025</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FORMACIÓN -->
+        <section id="formacion">
+            <div class="section-title">🏛️ Formación académica</div>
+            <div class="grid">
+                <div class="card pad col-6">
+                    <h4 style="margin:0 0 8px">Grado en Ingeniería Informática (2016–2021) — UDC</h4>
+                    <ul class="clean">
+                        <li>Mención en Ingeniería del Software</li>
+                        <li>TFG: Optimización en la ejecución del procesamiento de datos en plataforma IoT</li>
+                        <li>Nota: Sobresaliente</li>
+                    </ul>
+                </div>
+                <div class="card pad col-6">
+                    <h4 style="margin:0 0 8px">Formación profesional</h4>
+                    <ul class="clean">
+                        <li>FP Sup. Desarrollo de Aplicaciones Multiplataforma (DAM) — 2014–2016</li>
+                        <li>FP Medio Sistemas Microinformáticos y Redes (SMR) — 2012–2014</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDIOMAS -->
+        <section id="idiomas">
+            <div class="section-title">🌐 Idiomas</div>
+            <div class="grid">
+                <div class="card pad col-4"><b>Castellano</b><br /><span class="muted">Nativo</span></div>
+                <div class="card pad col-4"><b>Gallego</b><br /><span class="muted">Nativo</span></div>
+                <div class="card pad col-4"><b>Inglés</b><br /><span class="muted">B2 (EF SET)</span></div>
             </div>
         </section>
 
         <!-- CONTACTO -->
         <section id="contacto">
-            <div class="section-title"><span class="tag">Contacto</span></div>
+            <div class="section-title">📬 Contacto</div>
             <div class="card pad">
-                <p class="muted" style="margin:0 0 12px">¿Quieres contactar conmigo o colaborar en un proyecto?</p>
+                <p class="muted">A Coruña, España · Tel. <a href="tel:+34697179015">+34 697 179 015</a></p>
                 <div class="cta">
-                    <a class="btn" href="mailto:alejandromtnezdlfuente@gmail.com">📧 Email</a>
-                    <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank" rel="noopener">🐙
-                        GitHub</a>
-                    <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/" target="_blank"
-                        rel="noopener">💼 LinkedIn</a>
+                    <a class="btn primary" href="mailto:alejandromtnezdlfuente@gmail.com">📧 Email</a>
+                    <a class="btn" href="https://github.com/AlexMtnezFuente" target="_blank">🐙 GitHub</a>
+                    <a class="btn" href="https://www.linkedin.com/in/alejandromartinezdelafuente/" target="_blank">💼
+                        LinkedIn</a>
                 </div>
             </div>
         </section>
